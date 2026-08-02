@@ -1,0 +1,62 @@
+/* ============ Achievements ============ */
+.achievements__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.achievement-card {
+  padding: 30px 26px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.achievement-card__icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+  background: linear-gradient(135deg, rgba(59,130,246,0.18), rgba(168,85,247,0.18));
+  border: 1px solid var(--border);
+  transition: transform var(--transition);
+}
+.achievement-card:hover .achievement-card__icon {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.achievement-card__title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.achievement-card__desc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.achievement-card__glow {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.30), transparent 70%);
+  filter: blur(30px);
+  opacity: 0;
+  transition: opacity var(--transition);
+  pointer-events: none;
+}
+.achievement-card:hover .achievement-card__glow { opacity: 1; }
+
+@media (max-width: 992px) {
+  .achievements__grid { grid-template-columns: 1fr; }
+}

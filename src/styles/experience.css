@@ -1,0 +1,102 @@
+/* ============ Experience ============ */
+.experience__wrap { max-width: 960px; margin: 0 auto; }
+
+.experience-card {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 24px;
+  padding: 32px 30px;
+}
+
+.experience-card__left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.experience-card__icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  background: var(--gradient-primary);
+  box-shadow: var(--glow-blue);
+}
+
+.experience-card__badge {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  color: var(--neon-cyan);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.experience-card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.experience-card__title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.experience-card__meta {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+.experience-card__period {
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.experience-card__desc {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.experience-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.experience-card__list li {
+  display: flex;
+  gap: 12px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.92rem;
+}
+.experience-card__list strong { color: var(--text-primary); font-weight: 600; }
+.mark {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--neon-cyan);
+  box-shadow: 0 0 8px var(--neon-cyan);
+  margin-top: 9px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .experience-card { grid-template-columns: 1fr; text-align: left; }
+  .experience-card__left { flex-direction: row; }
+}

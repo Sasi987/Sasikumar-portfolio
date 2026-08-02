@@ -1,0 +1,425 @@
+/* =========================================================
+   GLOBAL STYLES — App.css
+   Premium dark portfolio for Sasikumar C
+   ========================================================= */
+
+/* ---------- CSS Variables ---------- */
+:root {
+  /* Colors */
+  --bg-primary: #070B14;
+  --bg-secondary: #0B1220;
+  --bg-tertiary: #111827;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-hover: rgba(255, 255, 255, 0.07);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+
+  --text-primary: #F5F7FB;
+  --text-secondary: #A9B3C6;
+  --text-muted: #6E7891;
+
+  /* Neon Palette */
+  --neon-blue: #3B82F6;
+  --neon-cyan: #22D3EE;
+  --neon-purple: #A855F7;
+  --neon-pink: #EC4899;
+  --neon-indigo: #6366F1;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #3B82F6 0%, #A855F7 50%, #22D3EE 100%);
+  --gradient-secondary: linear-gradient(135deg, #22D3EE 0%, #6366F1 100%);
+  --gradient-accent: linear-gradient(135deg, #A855F7 0%, #EC4899 100%);
+  --gradient-text: linear-gradient(135deg, #E0E7FF 0%, #22D3EE 40%, #A855F7 100%);
+  --gradient-border: linear-gradient(135deg, rgba(59,130,246,0.6), rgba(168,85,247,0.6), rgba(34,211,238,0.6));
+
+  /* Glow */
+  --glow-blue: 0 0 40px rgba(59, 130, 246, 0.35);
+  --glow-purple: 0 0 40px rgba(168, 85, 247, 0.35);
+  --glow-cyan: 0 0 40px rgba(34, 211, 238, 0.35);
+
+  /* Typography */
+  --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Poppins', 'Inter', sans-serif;
+
+  /* Spacing */
+  --section-py: clamp(60px, 10vw, 120px);
+  --container-max: 1280px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+
+  /* Transitions */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition: 0.4s var(--ease);
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Subtle noise/mesh overlay across the whole app */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.10), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(168, 85, 247, 0.10), transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(34, 211, 238, 0.08), transparent 45%);
+  z-index: 0;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' /%3E%3C/svg%3E");
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* ---------- Custom Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--neon-blue), var(--neon-purple));
+  border-radius: 10px;
+  border: 2px solid var(--bg-primary);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple));
+}
+
+/* ---------- Selection ---------- */
+::selection {
+  background: rgba(168, 85, 247, 0.55);
+  color: #fff;
+}
+
+/* ---------- App Shell ---------- */
+.app {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ---------- 3D Floating Background Orbs ---------- */
+.bg-orbs {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.55;
+  will-change: transform;
+}
+
+.orb-1 {
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, var(--neon-blue), transparent 70%);
+  top: -120px;
+  left: -120px;
+  animation: floatOrb 18s ease-in-out infinite;
+}
+.orb-2 {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, var(--neon-purple), transparent 70%);
+  top: 40%;
+  right: -160px;
+  animation: floatOrb 22s ease-in-out infinite reverse;
+}
+.orb-3 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--neon-cyan), transparent 70%);
+  bottom: -140px;
+  left: 30%;
+  animation: floatOrb 26s ease-in-out infinite;
+}
+
+@keyframes floatOrb {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(60px, -80px, 0) scale(1.1);
+  }
+}
+
+/* ---------- Utility Classes ---------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+}
+
+.section {
+  padding: var(--section-py) 0;
+  position: relative;
+}
+
+.section-tag {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.10);
+  border: 1px solid rgba(59, 130, 246, 0.30);
+  color: var(--neon-cyan);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 18px;
+  background: var(--gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.section-subtitle {
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  color: var(--text-secondary);
+  max-width: 640px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.gradient-text {
+  background: var(--gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Glassmorphism reusable card */
+.glass-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+  transform: translateY(-4px);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: #fff;
+  box-shadow: var(--glow-blue);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(59, 130, 246, 0.55);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+  backdrop-filter: blur(10px);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+  transform: translateY(-3px);
+  box-shadow: var(--glow-cyan);
+}
+
+/* Reveal animation baseline */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Loading Screen ---------- */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-primary);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-logo {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  background: var(--gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.1em;
+}
+
+.loader-bar {
+  width: 220px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.loader-bar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-primary);
+  animation: loadBar 1.4s ease-in-out infinite;
+}
+
+@keyframes loadBar {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(220px); }
+}
+
+/* ---------- Responsive Breakpoints ---------- */
+@media (max-width: 1200px) {
+  :root { --container-max: 1080px; }
+}
+
+@media (max-width: 992px) {
+  :root { --container-max: 960px; --section-py: clamp(50px, 9vw, 90px); }
+}
+
+@media (max-width: 768px) {
+  html { scroll-padding-top: 70px; }
+  .btn { padding: 12px 22px; font-size: 0.9rem; }
+  .orb { filter: blur(70px); opacity: 0.45; }
+}
+
+@media (max-width: 576px) {
+  .container { padding: 0 20px; }
+  .section-header { margin-bottom: 40px; }
+}
