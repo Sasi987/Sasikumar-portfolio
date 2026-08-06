@@ -145,6 +145,12 @@
   .footer__inner { grid-template-columns: 1fr; gap: 40px; }
 }
 @media (max-width: 576px) {
-  .footer__cols { grid-template-columns: 1fr 1fr; }
+  .footer__cols { grid-template-columns: 1fr; gap: 26px; }
   .back-to-top { bottom: 90px; right: 20px; }
+
+  .footer__col a,
+  .footer__col li {
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
 }

@@ -21,7 +21,7 @@ export default function Footer() {
         <div className="footer__brand">
           <div className="footer__logo">
             <span className="footer__logo-mark">S</span>
-            Sasikumar<span className="dot">.</span>
+            Sasikumar C<span className="dot"></span>
           </div>
           <p className="footer__tagline">
             Java Full Stack Developer building modern, scalable, and user-friendly web experiences.

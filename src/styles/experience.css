@@ -1,4 +1,9 @@
 /* ============ Experience ============ */
+.experience,
+#experience {
+  scroll-margin-top: 90px;
+}
+
 .experience__wrap { max-width: 960px; margin: 0 auto; }
 
 .experience-card {
@@ -97,6 +102,8 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-  .experience-card { grid-template-columns: 1fr; text-align: left; }
-  .experience-card__left { flex-direction: row; }
+  .experience-card { grid-template-columns: 1fr; text-align: left; padding: 26px 20px; }
+  .experience-card__left { flex-direction: row; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .experience-card__head { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .experience-card__title { font-size: 1.15rem; }
 }

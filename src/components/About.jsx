@@ -40,9 +40,9 @@ export default function About() {
     return () => obs.disconnect();
   }, []);
 
-  const yrs = useCounter(1, inView);
-  const projects = useCounter(10, inView);
-  const learning = useCounter(15, inView);
+  const yrs = useCounter( inView);
+  const projects = useCounter(5, inView);
+  const learning = useCounter(8, inView);
 
   return (
     <section id="about" className="about section">
@@ -103,7 +103,7 @@ export default function About() {
                 <div className="counter-value">
                   {yrs}<span>+</span>
                 </div>
-                <div className="counter-label">Year of Experience</div>
+                <div className="counter-label">Fresher</div>
               </div>
               <div className="counter-card">
                 <div className="counter-value">
@@ -120,17 +120,7 @@ export default function About() {
             </div>
 
             <div className="about__ctas">
-              <a href="sasi@.pdf" download className="btn btn-primary">Download Resume</a>
-              <a
-                href="#contact"
-                onClick={e => {
-                  e.preventDefault();
-                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="btn btn-ghost"
-              >
-                Let&rsquo;s Talk
-              </a>
+             
             </div>
           </div>
         </div>

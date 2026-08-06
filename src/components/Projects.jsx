@@ -3,6 +3,33 @@ import '../styles/projects.css';
 
 const PROJECTS = [
   {
+    title: 'Maya Industries',
+    subtitle: 'Modern Responsive Portfolio',
+    image: '',
+    desc:
+      'Maya Industries is a premium industrial manufacturing and engineering company delivering high-performance machinery solutions for fabrication, welding, cutting, drilling, and heavy-duty industrial applications.',
+    tech: ['React.js', 'CSS3', 'Framer Motion'],
+    features: ['Welding machine solutions', 'Gas cutting equipment', 'Drilling & heavy-duty machinery','Industrial fabrication systems'],
+    demo: 'https://mayaindustriess.com/',
+    github: '#',
+    status: 'live',
+    accent: 'purple'
+  },
+  {
+    title: 'Personal Portfolio Website',
+    subtitle: 'Modern Responsive Portfolio',
+    desc:
+      'A premium personal portfolio built with React.js — cinematic animations, glassmorphism, contact form, and SEO-optimized structure.',
+    tech: ['React.js', 'CSS3', 'Framer Motion'],
+    features: ['Smooth animations', 'Contact form integration', 'SEO optimized'],
+    demo: 'https://sasistack.netlify.app/',
+    github: '#',
+    status: 'live',
+    accent: 'purple'
+  },
+  
+  
+  {
     title: 'SpotStars / Melodify',
     subtitle: 'Music & Movie Categorization Platform',
     desc:
@@ -14,30 +41,6 @@ const PROJECTS = [
     status: 'live',
     accent: 'blue'
   },
-  {
-    title: 'Personal Portfolio Website',
-    subtitle: 'Modern Responsive Portfolio',
-    desc:
-      'A premium personal portfolio built with React.js — cinematic animations, glassmorphism, contact form, and SEO-optimized structure.',
-    tech: ['React.js', 'CSS3', 'Framer Motion'],
-    features: ['Smooth animations', 'Contact form integration', 'SEO optimized'],
-    demo: '#',
-    github: '#',
-    status: 'live',
-    accent: 'purple'
-  },
-  {
-    title: 'Job Search Web Application',
-    subtitle: 'Coming Soon',
-    desc:
-      'A full-stack job portal with authentication, advanced search, category filters, and a personalized user dashboard. Built with React, Spring Boot, and MySQL.',
-    tech: ['React', 'Spring Boot', 'MySQL'],
-    features: ['Authentication', 'Search & filters', 'User dashboard'],
-    demo: '#',
-    github: '#',
-    status: 'soon',
-    accent: 'cyan'
-  }
 ];
 
 export default function Projects() {
@@ -65,11 +68,22 @@ export default function Projects() {
               <div className="project-card__inner">
                 {/* Image placeholder */}
                 <div className="project-card__thumb">
-                  <div className="thumb-grid" aria-hidden="true" />
-                  <div className="thumb-content">
-                    <span className="thumb-label">{p.subtitle}</span>
-                    <span className="thumb-title">{p.title}</span>
-                  </div>
+                  {p.image ? (
+                    <img
+                      src={p.image}
+                      alt={`${p.title} preview`}
+                      className="thumb-img"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <>
+                      <div className="thumb-grid" aria-hidden="true" />
+                      <div className="thumb-content">
+                        <span className="thumb-label">{p.subtitle}</span>
+                        <span className="thumb-title">{p.title}</span>
+                      </div>
+                    </>
+                  )}
                   {p.status === 'soon' && (
                     <span className="thumb-badge">Coming Soon</span>
                   )}

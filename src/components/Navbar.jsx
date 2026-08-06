@@ -63,7 +63,7 @@ export default function Navbar() {
           aria-label="Home"
         >
           <span className="navbar__logo-mark">S</span>
-          <span className="navbar__logo-text">Sasikumar<span className="dot">.</span></span>
+          <span className="navbar__logo-text">Sasikumar  C<span className="dot"></span></span>
         </a>
 
         {/* Desktop Nav */}

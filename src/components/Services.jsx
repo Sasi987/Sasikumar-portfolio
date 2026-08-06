@@ -63,7 +63,7 @@ export default function Services() {
                   }}
                   className="service-card__link"
                 >
-                  Get Started →
+                
                 </a>
               </div>
             </div>
